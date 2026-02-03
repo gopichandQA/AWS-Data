@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Question for You ❤️</title>
+    <style>
+        /* CSS: Styling the page */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffeef2; /* Soft pink background */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden; /* Prevents scrollbars when button moves */
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            z-index: 1;
+        }
+
+        h1 {
+            color: #d63384;
+            margin-bottom: 20px;
+        }
+
+        #image-container img {
+            width: 200px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        #yesBtn {
+            background-color: #ff4d6d;
+            color: white;
+        }
+
+            #yesBtn:hover {
+                background-color: #ff758f;
+                transform: scale(1.1);
+            }
+
+        #noBtn {
+            background-color: #6c757d;
+            color: white;
+            position: absolute; /* Allows it to move anywhere */
+            transition: all 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 id="question">Will you be my Valentine? ❤️</h1>
+
+        <div id="image-container">
+            <img id="main-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1eXFhNHZ6eXFhNHZ6eXFhNHZ6eXFhNHZ6eXFhNHZ6eXFhNHZ6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/579UvO4rW4fW8/giphy.gif" alt="Asking GIF">
+        </div>
+
+        <div class="buttons">
+            <button id="yesBtn" onclick="celebrate()">YES</button>
+            <button id="noBtn" onmouseover="moveButton()">NO</button>
+        </div>
+    </div>
+
+    <script>
+        /* JavaScript: Making the "No" button move */
+        const noBtn = document.getElementById('noBtn');
+        const question = document.getElementById('question');
+        const mainGif = document.getElementById('main-gif');
+
+        function moveButton() {
+            // Calculate a random position on the screen
+            // Subtracted 100 to keep the button from going off the edge
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+
+            noBtn.style.left = x + "px";
+            noBtn.style.top = y + "px";
+        }
+
+        function celebrate() {
+            // Update the text and image when YES is clicked
+            question.innerHTML = "Yay! I'm so happy! ❤️ See you then!";
+            mainGif.src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1eXFhNHZ6eXFhNHZ6eXFhNHZ6eXFhNHZ6eXFhNHZ6eXFhNHZ6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/v0ok8JteARfM4/giphy.gif";
+
+            // Hide the buttons after selection
+            document.querySelector('.buttons').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
